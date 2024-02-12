@@ -1,4 +1,4 @@
-/* Copyright 2021 (@dbrglc) 
+/* Copyright 2021 (@dbrglc)
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -266,7 +266,7 @@ static void render_anim(void) {
     }
 }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
     if (is_keyboard_master()) {
         oled_set_cursor(0,1);
         uint8_t n = get_current_wpm();
@@ -283,6 +283,7 @@ void oled_task_user(void) {
     } else {
         render_anim();
     }
+    return true;
 }
 #endif // OLED_DRIVER_ENABLE
 
